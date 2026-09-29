@@ -1,0 +1,1967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Question 💗</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        /* ================================
+           GENERAL
+        ================================= */
+
+        :root {
+            --pink: #ff65a3;
+            --pink-light: #ffb2d1;
+            --purple: #a78bfa;
+            --white: #fff8fc;
+            --glass: rgba(255, 255, 255, 0.075);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            color: var(--white);
+
+            font-family: "DM Sans", sans-serif;
+
+            background: #080b24;
+
+            overflow-x: hidden;
+        }
+
+        button {
+            font: inherit;
+        }
+
+
+        /* ================================
+           STAR CANVAS
+        ================================= */
+
+        #stars {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: -2;
+
+            width: 100%;
+            height: 100%;
+
+            pointer-events: none;
+        }
+
+
+        /* ================================
+           BACKGROUND
+        ================================= */
+
+        .background-glow {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: -1;
+
+            pointer-events: none;
+
+            background:
+                radial-gradient(
+                    ellipse at 50% 40%,
+                    rgba(94, 50, 130, 0.27),
+                    transparent 58%
+                ),
+
+                radial-gradient(
+                    ellipse at 10% 90%,
+                    rgba(255, 70, 147, 0.13),
+                    transparent 45%
+                ),
+
+                linear-gradient(
+                    180deg,
+                    #080b24,
+                    #15102e 65%,
+                    #090b23
+                );
+        }
+
+
+        /* ================================
+           HEADER
+        ================================= */
+
+        header {
+            position: absolute;
+
+            top: 0;
+
+            width: 100%;
+
+            padding: 25px 7%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            color: #e8d9f5;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+        }
+
+        .logo {
+            font-weight: 700;
+
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--pink);
+        }
+
+
+        /* ================================
+           MAIN
+        ================================= */
+
+        main {
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 90px 20px 65px;
+        }
+
+
+        /* ================================
+           SCREEN
+        ================================= */
+
+        .screen {
+            width: 100%;
+
+            max-width: 760px;
+
+            text-align: center;
+
+            animation: appear 1.2s ease both;
+        }
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+        }
+
+
+        /* ================================
+           INTRO TEXT
+        ================================= */
+
+        .intro {
+            margin-bottom: 22px;
+
+            color: var(--pink-light);
+
+            font-size: 15px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* ================================
+           MAIN TITLE
+        ================================= */
+
+        h1 {
+            font-family: "Great Vibes", cursive;
+
+            font-size: clamp(58px, 11vw, 105px);
+
+            line-height: 1.1;
+
+            font-weight: 400;
+
+            margin: 0 0 15px;
+
+            color: #fff2fb;
+
+            text-shadow:
+                0 0 12px rgba(255, 101, 163, 0.6),
+                0 0 45px rgba(255, 101, 163, 0.25);
+        }
+
+
+        /* ================================
+           SUBTITLE
+        ================================= */
+
+        .subtitle {
+            color: #d6c9e9;
+
+            font-size: clamp(14px, 2.8vw, 17px);
+
+            line-height: 1.9;
+
+            max-width: 530px;
+
+            margin: 0 auto;
+        }
+
+
+        /* ================================
+           HEART
+        ================================= */
+
+        .heart {
+            display: inline-block;
+
+            color: var(--pink);
+
+            animation: heartbeat 1.6s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.22);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            45% {
+                transform: scale(1.14);
+            }
+        }
+
+
+        /* ================================
+           DIVIDER
+        ================================= */
+
+        .divider {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 13px;
+
+            margin: 34px auto;
+
+            color: var(--pink-light);
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+
+            width: 65px;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--pink)
+                );
+        }
+
+        .divider::after {
+            transform: rotate(180deg);
+        }
+
+
+        /* ================================
+           ENVELOPE
+        ================================= */
+
+        .envelope {
+            width: 115px;
+
+            height: 95px;
+
+            margin: 35px auto 30px;
+
+            position: relative;
+
+            cursor: pointer;
+
+            animation: float 3s ease-in-out infinite;
+
+            display: grid;
+
+            place-items: center;
+
+            font-size: 68px;
+
+            filter:
+                drop-shadow(
+                    0 0 25px
+                    rgba(255, 101, 163, 0.35)
+                );
+
+            transition: transform 0.3s;
+        }
+
+        .envelope:hover {
+            transform:
+                scale(1.12)
+                rotate(-5deg);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                translate: 0 0;
+            }
+
+            50% {
+                translate: 0 -12px;
+            }
+        }
+
+
+        /* ================================
+           OPEN BUTTON
+        ================================= */
+
+        .open-button {
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.45);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff5c9c,
+                    #d84cbd
+                );
+
+            color: white;
+
+            padding: 16px 38px;
+
+            border-radius: 50px;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 35px
+                rgba(255, 75, 157, 0.25);
+
+            transition: 0.3s ease;
+        }
+
+        .open-button:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 12px 45px
+                rgba(255, 75, 157, 0.45);
+        }
+
+
+        /* ================================
+           HIDDEN
+        ================================= */
+
+        .hidden {
+            display: none !important;
+        }
+
+
+        /* ================================
+           QUESTION
+        ================================= */
+
+        .question-screen {
+            max-width: 760px;
+        }
+
+        .question-screen h1 {
+            font-size: clamp(56px, 10vw, 90px);
+
+            margin: 20px 0;
+        }
+
+
+        /* ================================
+           MESSAGE CARD
+        ================================= */
+
+        .note {
+            margin: 0 auto;
+
+            max-width: 510px;
+
+            padding: 20px 25px;
+
+            background: var(--glass);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.11);
+
+            border-radius: 18px;
+
+            color: #e5d9ef;
+
+            line-height: 1.85;
+
+            font-size: 15px;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 20px 60px
+                rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* ================================
+           YES / NO BUTTONS
+        ================================= */
+
+        .buttons {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 18px;
+
+            margin-top: 36px;
+        }
+
+        .choice {
+            min-width: 155px;
+
+            padding: 16px 30px;
+
+            border-radius: 50px;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.4);
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s,
+                background 0.25s,
+                box-shadow 0.25s;
+
+            font-weight: 700;
+
+            font-size: 16px;
+        }
+
+        .choice:hover {
+            transform: translateY(-4px);
+        }
+
+
+        /* YES */
+
+        .yes {
+            color: white;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #ff4f97,
+                    #df55ce
+                );
+
+            box-shadow:
+                0 0 28px
+                rgba(255, 79, 151, 0.25);
+        }
+
+        .yes:hover {
+            box-shadow:
+                0 0 42px
+                rgba(255, 79, 151, 0.55);
+        }
+
+
+        /* NO */
+
+        .no {
+            background:
+                rgba(255, 255, 255, 0.07);
+
+            color: #eee4f5;
+
+            border-color:
+                rgba(255, 255, 255, 0.23);
+        }
+
+
+        /* ================================
+           RESPONSE
+        ================================= */
+
+        .response {
+            margin: 24px auto 0;
+
+            color: var(--pink-light);
+
+            min-height: 30px;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+        }
+
+
+        /* ================================
+           RESULT SCREEN
+        ================================= */
+
+        .result {
+            max-width: 650px;
+
+            margin: auto;
+
+            animation: appear 0.8s ease both;
+        }
+
+        .result h1 {
+            font-size:
+                clamp(60px, 11vw, 105px);
+        }
+
+        .result p {
+            color: #e7d9ed;
+
+            line-height: 1.9;
+
+            font-size: 16px;
+        }
+
+
+        /* ================================
+           BIG HEART
+        ================================= */
+
+        .big-heart {
+            font-size: 75px;
+
+            display: inline-block;
+
+            animation:
+                heartbeat 1.4s infinite;
+
+            filter:
+                drop-shadow(
+                    0 0 25px
+                    rgba(255, 70, 140, 0.6)
+                );
+        }
+
+
+        /* ================================
+           SMALL TEXT
+        ================================= */
+
+        .small {
+            margin-top: 30px;
+
+            font-size: 12px !important;
+
+            color: #b5a6c8 !important;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* ================================
+           FOOTER
+        ================================= */
+
+        footer {
+            position: fixed;
+
+            bottom: 17px;
+
+            left: 0;
+
+            width: 100%;
+
+            text-align: center;
+
+            font-size: 11px;
+
+            color:
+                rgba(230, 220, 245, 0.55);
+
+            letter-spacing: 1px;
+
+            pointer-events: none;
+        }
+
+
+        /* ================================
+           FLOATING HEARTS
+        ================================= */
+
+        .floating-heart {
+            position: fixed;
+
+            bottom: -40px;
+
+            z-index: 5;
+
+            pointer-events: none;
+
+            animation:
+                rise linear forwards;
+
+            color: var(--pink);
+
+            filter:
+                drop-shadow(
+                    0 0 9px
+                    rgba(255, 90, 160, 0.65)
+                );
+        }
+
+        @keyframes rise {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg)
+                    scale(0.6);
+
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.9;
+            }
+
+            85% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform:
+                    translateY(-110vh)
+                    rotate(35deg)
+                    scale(1.4);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* ================================
+           CONFETTI
+        ================================= */
+
+        .confetti {
+            position: fixed;
+
+            top: -20px;
+
+            width: 9px;
+
+            height: 14px;
+
+            z-index: 10;
+
+            pointer-events: none;
+
+            animation:
+                confetti-fall linear forwards;
+        }
+
+        @keyframes confetti-fall {
+
+            to {
+                transform:
+                    translateY(110vh)
+                    rotate(800deg);
+
+                opacity: 0.3;
+            }
+        }
+
+
+        /* ================================
+           HAPPY EMOJIS 😊
+        ================================= */
+
+        .happy-emoji {
+            position: fixed;
+
+            bottom: -50px;
+
+            z-index: 9999;
+
+            pointer-events: none;
+
+            animation:
+                emojiRise
+                linear
+                forwards;
+        }
+
+        @keyframes emojiRise {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg)
+                    scale(0.5);
+
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            50% {
+                transform:
+                    translateY(-50vh)
+                    rotate(180deg)
+                    scale(1.2);
+            }
+
+            100% {
+                transform:
+                    translateY(-115vh)
+                    rotate(360deg)
+                    scale(0.8);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* ================================
+           CRYING EMOJIS 😭
+        ================================= */
+
+        .crying-emoji {
+            position: fixed;
+
+            top: -50px;
+
+            z-index: 9999;
+
+            pointer-events: none;
+
+            animation:
+                cryFall
+                linear
+                forwards;
+        }
+
+        @keyframes cryFall {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(-10deg)
+                    scale(0.7);
+
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            50% {
+                transform:
+                    translateY(50vh)
+                    rotate(10deg)
+                    scale(1.15);
+            }
+
+            100% {
+                transform:
+                    translateY(115vh)
+                    rotate(-15deg)
+                    scale(0.8);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* ================================
+           SCROLL HINT
+        ================================= */
+
+        .scroll-hint {
+            margin-top: 48px;
+
+            font-size: 12px;
+
+            color: #b9a9cc;
+
+            letter-spacing: 1px;
+
+            animation:
+                hint 2s ease-in-out infinite;
+        }
+
+        @keyframes hint {
+
+            0%,
+            100% {
+                opacity: 0.45;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 500px) {
+
+            header {
+                padding: 20px;
+
+                font-size: 11px;
+            }
+
+            main {
+                padding:
+                    85px 19px 60px;
+            }
+
+            .note {
+                padding: 18px;
+            }
+
+            .buttons {
+                gap: 12px;
+            }
+
+            .choice {
+                min-width: 125px;
+
+                padding:
+                    15px 23px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         BACKGROUND
+    ================================= -->
+
+    <canvas id="stars"></canvas>
+
+    <div class="background-glow"></div>
+
+
+    <!-- ================================
+         HEADER
+    ================================= -->
+
+    <header>
+
+        <div class="logo">
+            A LITTLE <span>♥</span> NOTE
+        </div>
+
+        <div>
+            MADE JUST FOR YOU ✦
+        </div>
+
+    </header>
+
+
+    <!-- ================================
+         MAIN
+    ================================= -->
+
+    <main>
+
+
+        <!-- =================================
+             INTRO SCREEN
+        ================================= -->
+
+        <section
+            class="screen"
+            id="introScreen"
+        >
+
+            <div class="intro">
+                A tiny website, a big feeling
+            </div>
+
+
+            <h1>
+                Hey, you...
+            </h1>
+
+
+            <p class="subtitle">
+
+                There's something I've been
+                wanting to tell you.
+
+                <br>
+
+                So I made a little something
+                instead of just saying it.
+
+            </p>
+
+
+            <!-- Envelope -->
+
+            <div
+                class="envelope"
+                id="envelope"
+                aria-label="Open the letter"
+            >
+                💌
+            </div>
+
+
+            <!-- Open button -->
+
+            <button
+                class="open-button"
+                id="openButton"
+            >
+                Open my little letter ✨
+            </button>
+
+
+            <div class="scroll-hint">
+
+                MADE WITH A LITTLE COURAGE
+                & LOTS OF HEART
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             QUESTION SCREEN
+        ================================= -->
+
+        <section
+            class="screen question-screen hidden"
+            id="questionScreen"
+        >
+
+            <div class="intro">
+                Okay... here goes nothing
+            </div>
+
+
+            <h1>
+                Will you be my girlfriend?
+            </h1>
+
+
+            <div class="divider">
+                ♥
+            </div>
+
+
+            <!-- Message -->
+
+            <div class="note">
+
+                I really enjoy talking to you,
+                laughing with you, and having you
+                around.
+
+                You make ordinary days feel
+                a little more special.
+
+                <br>
+                <br>
+
+                I don't want to make things awkward
+                or put any pressure on you.
+
+                I just wanted to be honest about
+                how I feel. 💗
+
+            </div>
+
+
+            <!-- Buttons -->
+
+            <div class="buttons">
+
+                <button
+                    class="choice yes"
+                    id="yesButton"
+                >
+                    Yes! 💗
+                </button>
+
+
+                <button
+                    class="choice no"
+                    id="noButton"
+                >
+                    No, thank you
+                </button>
+
+            </div>
+
+
+            <div
+                class="response"
+                id="response"
+                aria-live="polite"
+            ></div>
+
+
+            <div class="scroll-hint">
+
+                WHATEVER YOUR ANSWER,
+                THANK YOU FOR READING ♡
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             YES SCREEN
+        ================================= -->
+
+        <section
+            class="screen result hidden"
+            id="yesScreen"
+        >
+
+            <div class="big-heart">
+                💖
+            </div>
+
+
+            <div class="intro">
+                A moment I'll remember
+            </div>
+
+
+            <h1>
+                YOU SAID YES!
+            </h1>
+
+
+            <p>
+
+                You just made me smile
+                like an idiot. 🥹
+
+                <br>
+
+                I'm really happy you feel
+                the same way.
+
+                <br>
+                <br>
+
+                Here's to getting to know each
+                other even more, making memories,
+                and enjoying every little moment.
+
+            </p>
+
+
+            <div class="divider">
+                ♡
+            </div>
+
+
+            <p>
+                I'm glad I asked. 💗
+            </p>
+
+
+            <button
+                class="open-button"
+                id="replayButton"
+            >
+                Experience it again ✨
+            </button>
+
+        </section>
+
+
+        <!-- =================================
+             NO SCREEN
+        ================================= -->
+
+        <section
+            class="screen result hidden"
+            id="noScreen"
+        >
+
+            <div class="big-heart">
+                🌷
+            </div>
+
+
+            <div class="intro">
+                Thank you for being honest
+            </div>
+
+
+            <h1>
+                It's okay.
+            </h1>
+
+
+            <p>
+
+                I appreciate you taking the
+                time to read this.
+
+                <br>
+
+                No pressure, and no hard feelings.
+
+                <br>
+                <br>
+
+                I hope we can still have a good
+                time and be ourselves around
+                each other.
+
+            </p>
+
+
+            <div class="divider">
+                ♡
+            </div>
+
+
+            <button
+                class="open-button"
+                id="backButton"
+            >
+                Back to the letter
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+        CRAFTED WITH ♥ AND A LITTLE BIT OF NERVOUSNESS
+    </footer>
+
+
+
+    <script>
+
+
+        /* =================================
+           PERSONALIZATION
+        ================================= */
+
+        const herName = "";
+
+        /*
+            If you want her name to appear,
+            change the line above to:
+
+            const herName = "Her Name";
+        */
+
+
+
+        /* =================================
+           SCREEN ELEMENTS
+        ================================= */
+
+        const introScreen =
+            document.getElementById("introScreen");
+
+        const questionScreen =
+            document.getElementById("questionScreen");
+
+        const yesScreen =
+            document.getElementById("yesScreen");
+
+        const noScreen =
+            document.getElementById("noScreen");
+
+
+
+        /* =================================
+           SCREEN SWITCHING
+        ================================= */
+
+        function showScreen(screen) {
+
+            [
+                introScreen,
+                questionScreen,
+                yesScreen,
+                noScreen
+            ].forEach(s => {
+
+                s.classList.add("hidden");
+
+            });
+
+
+            screen.classList.remove("hidden");
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+
+        /* =================================
+           OPEN LETTER
+        ================================= */
+
+        function openLetter() {
+
+            showScreen(questionScreen);
+
+
+            if (herName.trim()) {
+
+                document.querySelector(
+                    ".question-screen .intro"
+                ).textContent =
+                    `For ${herName}...`;
+
+            }
+
+        }
+
+
+
+        document
+            .getElementById("openButton")
+            .addEventListener(
+                "click",
+                openLetter
+            );
+
+
+        document
+            .getElementById("envelope")
+            .addEventListener(
+                "click",
+                openLetter
+            );
+
+
+
+        /* =================================
+           YES BUTTON
+        ================================= */
+
+        document
+            .getElementById("yesButton")
+            .addEventListener(
+                "click",
+                () => {
+
+                    showScreen(yesScreen);
+
+                    celebrate();
+
+                    heartBurst();
+
+                    happyEmojiBurst();
+
+                }
+            );
+
+
+
+        /* =================================
+           NO BUTTON
+        ================================= */
+
+        document
+            .getElementById("noButton")
+            .addEventListener(
+                "click",
+                () => {
+
+                    showScreen(noScreen);
+
+                    cryingEmojiBurst();
+
+                }
+            );
+
+
+
+        /* =================================
+           BACK BUTTON
+        ================================= */
+
+        document
+            .getElementById("backButton")
+            .addEventListener(
+                "click",
+                () => {
+
+                    showScreen(questionScreen);
+
+                }
+            );
+
+
+
+        /* =================================
+           REPLAY
+        ================================= */
+
+        document
+            .getElementById("replayButton")
+            .addEventListener(
+                "click",
+                () => {
+
+                    showScreen(introScreen);
+
+                }
+            );
+
+
+
+        /* =================================
+           FLOATING HEARTS
+        ================================= */
+
+        const heartSymbols = [
+            "♡",
+            "♥",
+            "💗",
+            "✧",
+            "💕"
+        ];
+
+
+        function makeHeart() {
+
+            const heart =
+                document.createElement("div");
+
+
+            heart.className =
+                "floating-heart";
+
+
+            heart.textContent =
+                heartSymbols[
+                    Math.floor(
+                        Math.random() *
+                        heartSymbols.length
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+
+            heart.style.fontSize =
+                (13 + Math.random() * 25)
+                + "px";
+
+
+            heart.style.animationDuration =
+                (5 + Math.random() * 6)
+                + "s";
+
+
+            document.body.appendChild(heart);
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 12000);
+
+        }
+
+
+        setInterval(
+            makeHeart,
+            650
+        );
+
+
+
+        /* =================================
+           HAPPY EMOJI EXPLOSION 😊
+        ================================= */
+
+        function happyEmojiBurst() {
+
+            const happyEmojis = [
+
+                "😊",
+                "😄",
+                "😁",
+                "🥰",
+                "😍",
+                "🤩",
+                "💖",
+                "💕",
+                "✨",
+                "🎉",
+                "🥳",
+                "💗"
+
+            ];
+
+
+            for (
+                let i = 0;
+                i < 80;
+                i++
+            ) {
+
+                setTimeout(() => {
+
+                    const emoji =
+                        document.createElement("div");
+
+
+                    emoji.className =
+                        "happy-emoji";
+
+
+                    emoji.textContent =
+                        happyEmojis[
+                            Math.floor(
+                                Math.random() *
+                                happyEmojis.length
+                            )
+                        ];
+
+
+                    emoji.style.left =
+                        Math.random() * 100
+                        + "vw";
+
+
+                    emoji.style.fontSize =
+                        (20 + Math.random() * 35)
+                        + "px";
+
+
+                    emoji.style.animationDuration =
+                        (3 + Math.random() * 3)
+                        + "s";
+
+
+                    document.body.appendChild(
+                        emoji
+                    );
+
+
+                    setTimeout(() => {
+
+                        emoji.remove();
+
+                    }, 6500);
+
+                }, i * 45);
+
+            }
+
+        }
+
+
+
+        /* =================================
+           CRYING EMOJI EFFECT 😭
+        ================================= */
+
+        function cryingEmojiBurst() {
+
+            const cryingEmojis = [
+
+                "😭",
+                "😢",
+                "🥺",
+                "💔",
+                "😿",
+                "🌧️",
+                "😞"
+
+            ];
+
+
+            for (
+                let i = 0;
+                i < 40;
+                i++
+            ) {
+
+                setTimeout(() => {
+
+                    const emoji =
+                        document.createElement("div");
+
+
+                    emoji.className =
+                        "crying-emoji";
+
+
+                    emoji.textContent =
+                        cryingEmojis[
+                            Math.floor(
+                                Math.random() *
+                                cryingEmojis.length
+                            )
+                        ];
+
+
+                    emoji.style.left =
+                        Math.random() * 100
+                        + "vw";
+
+
+                    emoji.style.fontSize =
+                        (22 + Math.random() * 30)
+                        + "px";
+
+
+                    emoji.style.animationDuration =
+                        (3 + Math.random() * 2)
+                        + "s";
+
+
+                    document.body.appendChild(
+                        emoji
+                    );
+
+
+                    setTimeout(() => {
+
+                        emoji.remove();
+
+                    }, 5500);
+
+                }, i * 90);
+
+            }
+
+        }
+
+
+
+        /* =================================
+           CONFETTI CELEBRATION 🎉
+        ================================= */
+
+        function celebrate() {
+
+            const colors = [
+
+                "#ff65a3",
+                "#ffd166",
+                "#c4a1ff",
+                "#ffffff",
+                "#ff9ec8",
+                "#9be7ff"
+
+            ];
+
+
+            for (
+                let i = 0;
+                i < 150;
+                i++
+            ) {
+
+                setTimeout(() => {
+
+                    const piece =
+                        document.createElement("div");
+
+
+                    piece.className =
+                        "confetti";
+
+
+                    piece.style.left =
+                        Math.random() * 100
+                        + "vw";
+
+
+                    piece.style.background =
+                        colors[
+                            Math.floor(
+                                Math.random() *
+                                colors.length
+                            )
+                        ];
+
+
+                    piece.style.borderRadius =
+                        Math.random() > 0.5
+                            ? "50%"
+                            : "2px";
+
+
+                    piece.style.animationDuration =
+                        (2 + Math.random() * 4)
+                        + "s";
+
+
+                    document.body.appendChild(
+                        piece
+                    );
+
+
+                    setTimeout(() => {
+
+                        piece.remove();
+
+                    }, 6500);
+
+                }, Math.random() * 1500);
+
+            }
+
+        }
+
+
+
+        /* =================================
+           HEART BURST
+        ================================= */
+
+        function heartBurst() {
+
+            for (
+                let i = 0;
+                i < 50;
+                i++
+            ) {
+
+                setTimeout(
+                    makeHeart,
+                    i * 65
+                );
+
+            }
+
+        }
+
+
+
+        /* =================================
+           STAR BACKGROUND
+        ================================= */
+
+        const canvas =
+            document.getElementById("stars");
+
+        const ctx =
+            canvas.getContext("2d");
+
+
+        let stars = [];
+
+        let width;
+
+        let height;
+
+
+
+        /* =================================
+           RESIZE CANVAS
+        ================================= */
+
+        function resizeCanvas() {
+
+            const dpr =
+                Math.min(
+                    window.devicePixelRatio || 1,
+                    2
+                );
+
+
+            width =
+                window.innerWidth;
+
+
+            height =
+                window.innerHeight;
+
+
+            canvas.width =
+                width * dpr;
+
+
+            canvas.height =
+                height * dpr;
+
+
+            canvas.style.width =
+                width + "px";
+
+
+            canvas.style.height =
+                height + "px";
+
+
+            ctx.setTransform(
+                dpr,
+                0,
+                0,
+                dpr,
+                0,
+                0
+            );
+
+
+            stars =
+                Array.from(
+                    {
+                        length:
+                            Math.floor(
+                                width *
+                                height /
+                                2800
+                            )
+                    },
+
+                    () => ({
+
+                        x:
+                            Math.random()
+                            * width,
+
+                        y:
+                            Math.random()
+                            * height,
+
+                        radius:
+                            Math.random()
+                            * 1.4 + 0.2,
+
+                        opacity:
+                            Math.random()
+                            * 0.8 + 0.2,
+
+                        speed:
+                            Math.random()
+                            * 0.012 + 0.002,
+
+                        phase:
+                            Math.random()
+                            * Math.PI * 2
+
+                    })
+                );
+
+        }
+
+
+
+        /* =================================
+           DRAW STARS
+        ================================= */
+
+        function drawStars(time) {
+
+            ctx.clearRect(
+                0,
+                0,
+                width,
+                height
+            );
+
+
+            stars.forEach(star => {
+
+                const shimmer =
+                    0.45 +
+                    0.55 *
+                    Math.sin(
+                        time *
+                        star.speed +
+                        star.phase
+                    );
+
+
+                ctx.beginPath();
+
+
+                ctx.arc(
+                    star.x,
+                    star.y,
+                    star.radius,
+                    0,
+                    Math.PI * 2
+                );
+
+
+                ctx.fillStyle =
+                    `rgba(
+                        255,
+                        255,
+                        255,
+                        ${star.opacity * shimmer}
+                    )`;
+
+
+                ctx.fill();
+
+
+
+                if (star.radius > 1.1) {
+
+                    ctx.beginPath();
+
+
+                    ctx.arc(
+                        star.x,
+                        star.y,
+                        star.radius * 3,
+                        0,
+                        Math.PI * 2
+                    );
+
+
+                    ctx.fillStyle =
+                        `rgba(
+                            178,
+                            155,
+                            255,
+                            ${0.08 * shimmer}
+                        )`;
+
+
+                    ctx.fill();
+
+                }
+
+            });
+
+
+            requestAnimationFrame(
+                drawStars
+            );
+
+        }
+
+
+
+        /* =================================
+           START STAR SYSTEM
+        ================================= */
+
+        window.addEventListener(
+            "resize",
+            resizeCanvas
+        );
+
+
+        resizeCanvas();
+
+
+        requestAnimationFrame(
+            drawStars
+        );
+
+    </script>
+
+</body>
+
+</html>
+```
